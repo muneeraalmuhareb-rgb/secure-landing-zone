@@ -13,3 +13,4 @@ resource "google_cloudbuild_trigger" "terraform_auto_deploy" {
 
   filename = "cloudbuild.yaml"
 }
+
