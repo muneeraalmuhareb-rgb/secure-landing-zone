@@ -1,8 +1,12 @@
-resource "google_compute_network" "secure_vpc" {
-  name                    = "secure-vpc"
-  auto_create_subnetworks = false
+resource "google_secret_manager_secret" "db_password" {
+  secret_id = "db-password"
+
+  replication {
+    auto {}
+  }
 }
 
-lifecycle {
-  prevent_destroy = true
+resource "google_secret_manager_secret_version" "db_password_version" {
+  secret      = google_secret_manager_secret.db_password.id
+  secret_data = "MySecurePassword123"
 }
