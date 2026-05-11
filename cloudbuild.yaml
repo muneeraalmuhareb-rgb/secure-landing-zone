@@ -4,7 +4,7 @@ steps:
     args:
       - "-c"
       - |
-        terraform init
+        terraform init -reconfigure
 
   - name: "hashicorp/terraform:light"
     entrypoint: "sh"
