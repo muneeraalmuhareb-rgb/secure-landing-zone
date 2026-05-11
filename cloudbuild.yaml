@@ -1,9 +1,26 @@
 steps:
-  - name: 'hashicorp/terraform:light'
-    entrypoint: 'sh'
+  - name: "hashicorp/terraform:light"
+    entrypoint: "sh"
     args:
-      - '-c'
+      - "-c"
       - |
         terraform init
+
+  - name: "hashicorp/terraform:light"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - |
         terraform plan
+
+  - name: "hashicorp/terraform:light"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - |
         terraform apply -auto-approve
+
+timeout: "1200s"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
