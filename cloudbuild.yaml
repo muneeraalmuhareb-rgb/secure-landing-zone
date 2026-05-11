@@ -1,12 +1,11 @@
 steps:
-  - name: 'hashicorp/terraform:light'
+  - name: 'hashicorp/terraform:1.5.7'
     entrypoint: 'sh'
     args:
       - '-c'
       - |
         terraform init
-        terraform plan
         terraform apply -auto-approve
 
-        options:
+options:
   logging: CLOUD_LOGGING_ONLY
