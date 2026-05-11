@@ -10,8 +10,8 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   network_interface {
-  subnetwork = google_compute_subnetwork.private_subnet.name
-}
+    subnetwork = google_compute_subnetwork.private_subnet.name
+  }
 
   tags = ["private-vm"]
 }
